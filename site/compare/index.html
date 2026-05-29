@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<title>Compare AI Coding Tools Side-by-Side — Pick in 5 Minutes</title>
+<meta name="description" content="Select up to 4 agentic AI coding tools and compare pricing, free tiers, languages, IDE support, and SWE-bench scores in one view.">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+<header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+    <a href="/" class="font-bold text-lg"><span class="text-blue-600">Agentic</span> Coding Tools</a>
+    <nav class="hidden md:flex gap-6 items-center">
+    <a href="/tools/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Tools</a>
+    <a href="/compare/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Compare</a>
+    <a href="/free-tools/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Free Tools</a>
+    <a href="/blog/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Blog</a>
+    </nav>
+    <button class="md:hidden text-2xl" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">☰</button>
+  </div>
+  <div id="mobile-nav" class="hidden md:hidden px-4 pb-4 flex flex-col gap-3 bg-white border-b border-slate-200">
+    <a href="/tools/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Tools</a>
+    <a href="/compare/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Compare</a>
+    <a href="/free-tools/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Free Tools</a>
+    <a href="/blog/" class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Blog</a>
+  </div>
+</header>
+<main class="py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-2">Compare AI Coding Tools Side-by-Side</h1>
+    <p class="text-slate-500 mb-8">Pick up to 4 tools. See pricing, free tiers, features, and trade-offs in one view.</p>
+    <h2 class="text-xl font-bold mb-4">Select Tools to Compare</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8" id="tool-select">      <label class="flex items-center gap-2 p-3 border border-slate-200 rounded-md bg-white hover:border-blue-400 cursor-pointer transition-colors">
+        <input type="checkbox" value="claude-code" class="compare-checkbox rounded" onchange="updateCompare()">
+        <span class="text-sm font-medium">Claude Code</span>
+      </label>
+      <label class="flex items-center gap-2 p-3 border border-slate-200 rounded-md bg-white hover:border-blue-400 cursor-pointer transition-colors">
+        <input type="checkbox" value="cursor" class="compare-checkbox rounded" onchange="updateCompare()">
+        <span class="text-sm font-medium">Cursor</span>
+      </label>
+      <label class="flex items-center gap-2 p-3 border border-slate-200 rounded-md bg-white hover:border-blue-400 cursor-pointer transition-colors">
+        <input type="checkbox" value="gemini-cli" class="compare-checkbox rounded" onchange="updateCompare()">
+        <span class="text-sm font-medium">Gemini CLI</span>
+      </label>
+      <label class="flex items-center gap-2 p-3 border border-slate-200 rounded-md bg-white hover:border-blue-400 cursor-pointer transition-colors">
+        <input type="checkbox" value="codex-cli" class="compare-checkbox rounded" onchange="updateCompare()">
+        <span class="text-sm font-medium">Codex CLI</span>
+      </label>
+      <label class="flex items-center gap-2 p-3 border border-slate-200 rounded-md bg-white hover:border-blue-400 cursor-pointer transition-colors">
+        <input type="checkbox" value="github-copilot" class="compare-checkbox rounded" onchange="updateCompare()">
+        <span class="text-sm font-medium">GitHub Copilot</span>
+      </label>
+    </div>
+    <div id="compare-empty" class="text-center py-16 text-slate-400">
+      <p class="text-lg">Select 2-4 tools above to see a side-by-side comparison.</p>
+    </div>
+    <div id="compare-table" class="hidden overflow-x-auto bg-white rounded-lg border border-slate-200"></div>
+  </div>
+</main>
+<script>
+const tools = [{"id": "claude-code", "name": "Claude Code", "maker": "Anthropic", "type": "Terminal-native CLI", "freeTier": true, "freeTierLabel": "Yes (limited credits)", "startingPrice": "$20/mo", "sweBench": "~82%", "selfHosted": false, "ideIntegrations": ["Terminal", "VS Code"], "languages": ["Python", "JS", "TS", "Go", "Rust", "Java", "C++"], "agentMode": true, "description": "Anthropic's agentic coding tool. Terminal-native. 54% market share among AI coding tools. Best suited for developers who prioritize code quality and reliability over IDE integration.", "freeTierDesc": "You can use Claude Code with Claude's free-tier API credits or by connecting to a paid Anthropic account. Free credits are limited and reset monthly.", "pricingTiers": [{"plan": "Free", "price": "$0", "details": "Limited API credits, rate-limited access"}, {"plan": "Pro", "price": "$20/mo", "details": "Higher limits, priority access"}, {"plan": "Max", "price": "$100/mo", "details": "Maximum limits, early features"}, {"plan": "API", "price": "Pay-per-token", "details": "Full control, usage-based billing"}], "features": ["Autonomous multi-file editing", "Git-aware", "Terminal-native", "Custom instructions (CLAUDE.md)", "VS Code extension", "Enterprise features (SSO, audit logs)"], "alternatives": [{"want": "IDE-native experience", "toolId": "cursor"}, {"want": "Lowest cost per token", "toolId": "gemini-cli"}, {"want": "Open-source flexibility", "toolId": "codex-cli"}, {"want": "Tight GitHub integration", "toolId": "github-copilot"}], "sponsored": false, "slug": "claude-code"}, {"id": "cursor", "name": "Cursor", "maker": "Cursor (Anysphere)", "type": "IDE (VS Code fork)", "freeTier": true, "freeTierLabel": "2-week Pro trial", "startingPrice": "$20/mo", "sweBench": "~82%", "selfHosted": false, "ideIntegrations": ["VS Code (forked)"], "languages": ["All major"], "agentMode": true, "description": "IDE-native agentic coding tool. $2B ARR. Supports 8-way parallel cloud agents. Best for developers who want AI embedded directly in their editor.", "freeTierDesc": "2-week free trial of Pro plan. After trial, limited free tier available.", "pricingTiers": [{"plan": "Free", "price": "$0", "details": "Limited completions after trial"}, {"plan": "Pro", "price": "$20/mo", "details": "Full features, priority access"}], "features": ["8-way parallel agents", "IDE-native (VS Code fork)", "Multi-file editing", "Composer (chat-based coding)", "@-mentions for context", "Rules system"], "alternatives": [{"want": "Terminal-native experience", "toolId": "claude-code"}, {"want": "Lower cost", "toolId": "gemini-cli"}], "sponsored": false, "slug": "cursor"}, {"id": "gemini-cli", "name": "Gemini CLI", "maker": "Google", "type": "Terminal CLI", "freeTier": true, "freeTierLabel": "Yes (free tier)", "startingPrice": "$0 (pay-as-you-go)", "sweBench": "~80%", "selfHosted": false, "ideIntegrations": ["Terminal", "VS Code", "JetBrains"], "languages": ["All major"], "agentMode": true, "description": "Google's open-source agentic coding CLI. 1/10 the cost of Opus. Best for budget-conscious developers who want open-source flexibility.", "freeTierDesc": "Truly free tier with generous limits. Pay-as-you-go for higher usage.", "pricingTiers": [{"plan": "Free", "price": "$0", "details": "Generous free tier"}, {"plan": "Pay-as-you-go", "price": "~1/10 Opus cost", "details": "Usage-based billing"}], "features": ["Open-source", "Terminal-native", "Multi-IDE support", "Lowest cost per token", "Google ecosystem integration", "Gemini model access"], "alternatives": [{"want": "Best code quality", "toolId": "claude-code"}, {"want": "IDE-native", "toolId": "cursor"}], "sponsored": false, "slug": "gemini-cli"}, {"id": "codex-cli", "name": "Codex CLI", "maker": "OpenAI", "type": "Terminal CLI", "freeTier": true, "freeTierLabel": "2 months free", "startingPrice": "Pay-per-token", "sweBench": "~81%", "selfHosted": false, "ideIntegrations": ["Terminal", "VS Code"], "languages": ["All major"], "agentMode": true, "description": "OpenAI's agentic coding CLI. Features Goal mode for high-level task decomposition. 2 months free for new users.", "freeTierDesc": "2 months free for new users. After that, pay-per-token billing.", "pricingTiers": [{"plan": "Free trial", "price": "$0", "details": "2 months free for new users"}, {"plan": "Pay-per-token", "price": "Varies", "details": "Usage-based billing"}], "features": ["Goal mode (task decomposition)", "OpenAI ecosystem", "Terminal-native", "VS Code extension", "GPT-5.5 powered", "Multi-file editing"], "alternatives": [{"want": "Best code quality", "toolId": "claude-code"}, {"want": "Lowest cost", "toolId": "gemini-cli"}], "sponsored": false, "slug": "codex-cli"}, {"id": "github-copilot", "name": "GitHub Copilot", "maker": "GitHub (Microsoft)", "type": "IDE extension", "freeTier": true, "freeTierLabel": "Yes (free tier)", "startingPrice": "$10/mo", "sweBench": "~78%", "selfHosted": false, "ideIntegrations": ["VS Code", "JetBrains", "Neovim"], "languages": ["All major"], "agentMode": true, "description": "The incumbent. Now with agent mode in 2026. Largest install base. Best for developers already in the GitHub ecosystem.", "freeTierDesc": "Free tier available for individual developers with limited completions per month.", "pricingTiers": [{"plan": "Free", "price": "$0", "details": "Limited completions/month"}, {"plan": "Individual", "price": "$10/mo", "details": "Unlimited completions"}, {"plan": "Business", "price": "$19/mo", "details": "Team features, policies"}, {"plan": "Enterprise", "price": "$39/mo", "details": "SSO, audit, custom models"}], "features": ["IDE-native (VS Code, JetBrains, Neovim)", "Agent mode (new in 2026)", "GitHub ecosystem", "Largest install base", "Code review assistance", "Multi-model support"], "alternatives": [{"want": "Better code quality", "toolId": "claude-code"}, {"want": "IDE-native experience", "toolId": "cursor"}], "sponsored": false, "slug": "github-copilot"}];
+const toolMap = {};
+tools.forEach(t => toolMap[t.id] = t);
+function updateCompare(){
+  const checked = [...document.querySelectorAll('.compare-checkbox:checked')].map(c => c.value);
+  const empty = document.getElementById('compare-empty');
+  const table = document.getElementById('compare-table');
+  if(checked.length < 2) { empty.classList.remove('hidden'); table.classList.add('hidden'); return; }
+  empty.classList.add('hidden'); table.classList.remove('hidden');
+  const selected = checked.map(id => toolMap[id]);
+  const features = [
+    {label:'Free tier', get:t=>t.freeTier?'Yes':'No'},
+    {label:'Starting price', get:t=>t.startingPrice},
+    {label:'SWE-bench', get:t=>t.sweBench},
+    {label:'Self-hosted', get:t=>t.selfHosted?'Yes':'No'},
+    {label:'IDE', get:t=>t.ideIntegrations.join(', ')},
+    {label:'Languages', get:t=>t.languages.slice(0,4).join(', ')},
+    {label:'Agent mode', get:t=>t.agentMode?'Yes':'No'}
+  ];
+  let html = '<table class="w-full text-sm"><thead><tr class="border-b-2 border-slate-200 text-left"><th class="px-4 py-3 text-xs font-semibold uppercase text-slate-500">Feature</th>';
+  selected.forEach(t => html += '<th class="px-4 py-3 text-xs font-semibold uppercase text-slate-500">'+t.name+'</th>');
+  html += '</tr></thead><tbody>';
+  features.forEach(f => {
+    const vals = selected.map(t => f.get(t));
+    const allSame = vals.every(v => v === vals[0]);
+    html += '<tr class="border-b border-slate-100"><td class="px-4 py-3 font-medium">'+f.label+'</td>';
+    vals.forEach(v => html += '<td class="px-4 py-3'+(allSame?'':' bg-blue-50')+'">'+v+'</td>');
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  table.innerHTML = html;
+}
+</script>
+<footer class="border-t border-slate-200 py-8 mt-16 text-center text-sm text-slate-400">
+  <nav class="flex gap-6 justify-center mb-2 flex-wrap">
+    <a href="/privacy/" class="hover:text-slate-600 transition-colors">Privacy Policy</a>
+    <a href="/terms/" class="hover:text-slate-600 transition-colors">Terms of Use</a>
+    <a href="/disclosure/" class="hover:text-slate-600 transition-colors">Affiliate Disclosure</a>
+  </nav>
+  <p>&copy; 2026 Agentic Coding Tools. All rights reserved.</p>
+</footer>
+</body>
+</html>

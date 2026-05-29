@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agentic Coding Tools | Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e2e0fc",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#c6c4df",
+                    "primary-container": "#2563eb",
+                    "surface": "#f8f9fa",
+                    "on-tertiary-fixed-variant": "#45455b",
+                    "surface-bright": "#f8f9fa",
+                    "on-tertiary-container": "#f2eeff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "outline-variant": "#c3c6d7",
+                    "surface-variant": "#e1e3e4",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2e3132",
+                    "secondary": "#505f76",
+                    "primary": "#004ac6",
+                    "on-secondary-fixed": "#0b1c30",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container": "#edeeef",
+                    "surface-dim": "#d9dadb",
+                    "surface-tint": "#0053db",
+                    "on-tertiary-fixed": "#1a1a2e",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "on-surface-variant": "#434655",
+                    "on-surface": "#191c1d",
+                    "on-background": "#191c1d",
+                    "tertiary": "#53536a",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "outline": "#737686",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "surface-container-high": "#e7e8e9",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#00174b",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#6c6b83",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-container": "#eeefff",
+                    "secondary-fixed-dim": "#b7c8e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin": "24px",
+                    "density-comfortable": "12px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "density-compact": "4px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Geist"],
+                    "headline-sm": ["Geist"],
+                    "code-md": ["JetBrains Mono"],
+                    "code-sm": ["JetBrains Mono"],
+                    "body-sm": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "label-caps": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "code-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "code-sm": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fafbfc;
+            color: #191c1d;
+            font-family: 'Geist', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+            font-size: 1.25rem;
+        }
+        .table-row-hover:hover {
+            background-color: #f1f5f9;
+        }
+        /* Custom scrollbar for high-density feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f9fa;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c3c6d7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #737686;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface docked full-width top-0 sticky z-50 border-b border-outline-variant flat no shadows">
+<div class="flex justify-between items-center px-gutter w-full max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Agentic Coding Tools</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 Active: opacity-80 transition-opacity" href="#">Tools</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low" href="#">Compare</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low" href="#">Free Tools</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-body-md text-body-md text-secondary border border-outline px-4 py-1.5 hover:bg-surface-container-low transition-colors">Sign In</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-12">
+<!-- Hero Section -->
+<section class="mb-10">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Every Agentic AI Coding Tool We Track</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                A definitive, live-updated directory of autonomous agents, AI-native IDEs, and CLI tools designed to automate software engineering workflows. Focused on objective performance metrics and deployment flexibility.
+            </p>
+</section>
+<!-- Filter Bar -->
+<section class="mb-6 flex flex-wrap items-center gap-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Filters:</span>
+<button class="bg-primary-container text-on-primary-container px-3 py-1.5 text-xs font-code-sm font-medium flex items-center gap-2 border border-primary transition-all">
+                Free tier
+                <span class="material-symbols-outlined text-[14px]">check</span>
+</button>
+<button class="bg-surface text-on-surface-variant px-3 py-1.5 text-xs font-code-sm font-medium border border-outline-variant hover:border-primary transition-all">
+                Self-hosted
+            </button>
+<button class="bg-surface text-on-surface-variant px-3 py-1.5 text-xs font-code-sm font-medium border border-outline-variant hover:border-primary transition-all">
+                VS Code
+            </button>
+<button class="bg-surface text-on-surface-variant px-3 py-1.5 text-xs font-code-sm font-medium border border-outline-variant hover:border-primary transition-all">
+                JetBrains
+            </button>
+<button class="bg-surface text-on-surface-variant px-3 py-1.5 text-xs font-code-sm font-medium border border-outline-variant hover:border-primary transition-all">
+                Terminal
+            </button>
+<div class="ml-auto flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 5 tools</span>
+<span class="w-px h-4 bg-outline-variant mx-2"></span>
+<button class="text-primary font-body-sm text-body-sm hover:underline">Clear all</button>
+</div>
+</section>
+<!-- Tool List Table -->
+<div class="border border-outline-variant bg-surface-container-lowest overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant uppercase">Tool</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant uppercase">Free Tier</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant uppercase">Starting Price</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant uppercase">SWE-bench Score</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1: Claude Code -->
+<tr class="table-row-hover transition-colors cursor-pointer group">
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">terminal</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm block">Claude Code</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">CLI / Anthropic</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 font-code-sm text-code-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200">Limited</span>
+</td>
+<td class="px-4 py-3 font-body-md text-body-md text-on-surface">Pay-as-you-go</td>
+<td class="px-4 py-3">
+<span class="font-code-sm text-code-sm text-primary font-bold">Top Tier</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-caps text-label-caps uppercase underline">View Docs</button>
+</td>
+</tr>
+<!-- Row 2: Cursor -->
+<tr class="table-row-hover transition-colors cursor-pointer group">
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">integration_instructions</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm block">Cursor</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">IDE / VS Code Fork</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 font-code-sm text-code-sm font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200">Yes</span>
+</td>
+<td class="px-4 py-3 font-body-md text-body-md text-on-surface">Free / $20/mo</td>
+<td class="px-4 py-3">
+<span class="font-code-sm text-code-sm text-primary font-bold">Top Tier</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-caps text-label-caps uppercase underline">View Docs</button>
+</td>
+</tr>
+<!-- Row 3: Aider -->
+<tr class="table-row-hover transition-colors cursor-pointer group">
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">robot_2</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm block">Aider</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">CLI / Open Source</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 font-code-sm text-code-sm font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200">Yes</span>
+</td>
+<td class="px-4 py-3 font-body-md text-body-md text-on-surface">Free (Open Source)</td>
+<td class="px-4 py-3">
+<span class="font-code-sm text-code-sm text-primary font-bold">Elite</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-caps text-label-caps uppercase underline">View Docs</button>
+</td>
+</tr>
+<!-- Row 4: GitHub Copilot -->
+<tr class="table-row-hover transition-colors cursor-pointer group">
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">developer_mode_tv</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm block">GitHub Copilot</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Extension / Microsoft</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 font-code-sm text-code-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">No</span>
+</td>
+<td class="px-4 py-3 font-body-md text-body-md text-on-surface">$10/mo</td>
+<td class="px-4 py-3">
+<span class="font-code-sm text-code-sm text-secondary font-bold">High</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-caps text-label-caps uppercase underline">View Docs</button>
+</td>
+</tr>
+<!-- Row 5: Replit Agent -->
+<tr class="table-row-hover transition-colors cursor-pointer group">
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">cloud_sync</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm block">Replit Agent</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Cloud IDE / Replit</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 font-code-sm text-code-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">No</span>
+</td>
+<td class="px-4 py-3 font-body-md text-body-md text-on-surface">Usage based</td>
+<td class="px-4 py-3">
+<span class="font-code-sm text-code-sm text-secondary font-bold">Mid</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-caps text-label-caps uppercase underline">View Docs</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State Section (Hidden by default, shown for reference) -->
+<section class="hidden mt-8 border border-dashed border-outline-variant py-16 flex flex-col items-center justify-center bg-surface-container-low" id="empty-state">
+<span class="material-symbols-outlined text-4xl text-outline mb-4">search_off</span>
+<p class="font-headline-sm text-headline-sm text-on-surface mb-2">No tools match these filters.</p>
+<button class="text-primary font-body-md text-body-md flex items-center gap-2 hover:underline">
+                Clear filters
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</section>
+<!-- Aesthetic Visual Element -->
+<div class="mt-12 p-6 border border-outline-variant bg-surface flex flex-col md:flex-row items-center gap-8">
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm mb-2">Directory Methodology</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    All tools are evaluated based on their ability to resolve complex engineering tasks autonomously. Scores are derived from standardized SWE-bench benchmarks and internal verification of agentic loops.
+                </p>
+</div>
+<div class="flex-shrink-0 w-full md:w-64 h-24 bg-surface-container border border-outline-variant overflow-hidden relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#2563eb 0.5px, transparent 0.5px); background-size: 8px 8px;"></div>
+<div class="p-4 flex flex-col justify-between h-full">
+<span class="font-code-sm text-code-sm text-primary font-bold">DATA_FEED_ACTIVE</span>
+<div class="flex gap-1">
+<div class="h-4 w-1 bg-primary animate-pulse"></div>
+<div class="h-4 w-1 bg-primary animate-pulse" style="animation-delay: 0.1s"></div>
+<div class="h-4 w-1 bg-primary animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="h-4 w-1 bg-primary animate-pulse" style="animation-delay: 0.3s"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low full-width bottom-0 border-t border-outline-variant flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-8 w-full max-w-container-max mx-auto gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">AGENTIC CODING TOOLS</span>
+<span class="font-body-sm text-body-sm text-secondary">© 2024 Agentic Coding Tools. All rights reserved.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all focus:outline-none focus:ring-1 focus:ring-primary" href="#">Privacy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all focus:outline-none focus:ring-1 focus:ring-primary" href="#">Terms</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all focus:outline-none focus:ring-1 focus:ring-primary" href="#">Disclosures</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for filter chips
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                if(this.classList.contains('bg-primary-container')) {
+                    // Logic to deactivate if it was already active
+                }
+            });
+        });
+
+        // Search logic placeholder
+        console.log("High-density directory initialized. Zero-latency filtering ready.");
+    </script>
+</body></html>

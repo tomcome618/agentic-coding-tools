@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agentic Coding Tools - Developer Resources</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #fafbfc;
+            color: #1a1a2e;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* High-density utility styling */
+        .tool-row:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-item.active .rotate-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface-variant": "#434655",
+                        "surface": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary": "#53536a",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-container": "#f2eeff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#2563eb", /* Overridden per user request */
+                        "primary-container": "#2563eb",
+                        "outline-variant": "#c3c6d7",
+                        "outline": "#737686",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#d0e1fb",
+                        "tertiary-container": "#6c6b83",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary": "#505f76",
+                        "tertiary-fixed-dim": "#c6c4df",
+                        "on-tertiary-fixed": "#1a1a2e",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-dim": "#d9dadb",
+                        "on-background": "#191c1d",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-tint": "#0053db",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#45455b",
+                        "secondary-fixed": "#d3e4fe",
+                        "background": "#f8f9fa",
+                        "inverse-primary": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e2e0fc",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#eeefff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "density-comfortable": "12px",
+                        "density-compact": "4px",
+                        "margin": "24px",
+                        "container-max": "1440px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["ui-sans-serif", "system-ui"],
+                        "code-md": ["JetBrains Mono"],
+                        "body-md": ["ui-sans-serif", "system-ui"],
+                        "headline-md": ["ui-sans-serif", "system-ui"],
+                        "code-sm": ["JetBrains Mono"],
+                        "body-lg": ["ui-sans-serif", "system-ui"],
+                        "headline-lg": ["ui-sans-serif", "system-ui"],
+                        "headline-sm": ["ui-sans-serif", "system-ui"],
+                        "label-caps": ["ui-sans-serif", "system-ui"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "code-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code-sm": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full bg-surface border-b border-outline-variant z-50">
+<div class="flex justify-between items-center px-margin h-14 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold flex items-center">
+<span class="text-primary">Agentic</span>
+<span class="text-on-surface ml-1">Coding Tools</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-primary font-bold border-b-2 border-primary cursor-pointer active:opacity-80 transition-colors" href="#">Tools</a>
+<a class="text-on-surface-variant hover:text-primary cursor-pointer active:opacity-80 transition-colors" href="#">Compare</a>
+<a class="text-on-surface-variant hover:text-primary cursor-pointer active:opacity-80 transition-colors" href="#">Free Tools</a>
+<a class="text-on-surface-variant hover:text-primary cursor-pointer active:opacity-80 transition-colors" href="#">Blog</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-1.5 font-body-md rounded hover:bg-on-primary-fixed-variant transition-all cursor-pointer">Sign Up</button>
+</div>
+</div>
+</header>
+<main class="mt-14">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin py-24 flex flex-col md:flex-row items-center">
+<div class="w-full md:w-2/3 text-left">
+<h1 class="font-headline-lg text-[2.5rem] leading-[1.1] font-bold text-[#1a1a2e] mb-6">
+                    Find the Right Agentic AI Coding Tool for How You Work
+                </h1>
+<p class="font-body-lg text-on-surface-variant mb-8 max-w-xl">
+                    Pick the right tool in 5 minutes — no signup, no fluff, updated weekly. Optimized for engineering teams and solo developers.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-3 font-headline-sm rounded-lg hover:bg-on-primary-fixed-variant transition-all">Find My Tool</button>
+<button class="border border-outline text-on-surface px-6 py-3 font-headline-sm rounded-lg hover:bg-surface-container transition-all">Browse All Tools</button>
+</div>
+</div>
+</section>
+<!-- Commitments (Why Trust) -->
+<section class="max-w-container-max mx-auto px-margin pb-16">
+<div class="flex flex-wrap gap-3">
+<div class="bg-[#f1f5f9] text-[#64748b] px-4 py-1.5 rounded-full font-label-caps text-label-caps border border-outline-variant">UPDATED WEEKLY</div>
+<div class="bg-[#f1f5f9] text-[#64748b] px-4 py-1.5 rounded-full font-label-caps text-label-caps border border-outline-variant">OBJECTIVE CRITERIA</div>
+<div class="bg-[#f1f5f9] text-[#64748b] px-4 py-1.5 rounded-full font-label-caps text-label-caps border border-outline-variant">FREE TIER FACTS</div>
+<div class="bg-[#f1f5f9] text-[#64748b] px-4 py-1.5 rounded-full font-label-caps text-label-caps border border-outline-variant">INDEPENDENT</div>
+<div class="bg-[#f1f5f9] text-[#64748b] px-4 py-1.5 rounded-full font-label-caps text-label-caps border border-outline-variant">NO SIGNUP</div>
+</div>
+</section>
+<!-- Top Tools This Week -->
+<section class="max-w-container-max mx-auto px-margin py-16 bg-surface-container-lowest border-y border-outline-variant">
+<h2 class="font-headline-md text-headline-md mb-8">Top Tools This Week</h2>
+<div class="border border-outline-variant rounded">
+<!-- Row Header -->
+<div class="grid grid-cols-12 gap-4 px-4 py-3 bg-surface-container-low font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant">
+<div class="col-span-1">RANK</div>
+<div class="col-span-3">TOOL NAME</div>
+<div class="col-span-5">DESCRIPTION</div>
+<div class="col-span-3 text-right">CATEGORY</div>
+</div>
+<!-- Tool Rows -->
+<div class="tool-row grid grid-cols-12 gap-4 px-4 py-4 items-center border-b border-outline-variant last:border-b-0 transition-colors">
+<div class="col-span-1 font-code-md text-primary">#1</div>
+<div class="col-span-3 font-code-md font-medium">cursor.sh</div>
+<div class="col-span-5 font-body-md text-on-surface-variant">The AI-native code editor that builds while you think.</div>
+<div class="col-span-3 text-right"><span class="bg-secondary-container text-on-secondary-fixed-variant px-2 py-1 rounded font-code-sm">VS Code Fork</span></div>
+</div>
+<div class="tool-row grid grid-cols-12 gap-4 px-4 py-4 items-center border-b border-outline-variant last:border-b-0 transition-colors">
+<div class="col-span-1 font-code-md text-primary">#2</div>
+<div class="col-span-3 font-code-md font-medium">aider.chat</div>
+<div class="col-span-5 font-body-md text-on-surface-variant">Command-line chat with your local git repo files.</div>
+<div class="col-span-3 text-right"><span class="bg-secondary-container text-on-secondary-fixed-variant px-2 py-1 rounded font-code-sm">CLI / Python</span></div>
+</div>
+<div class="tool-row grid grid-cols-12 gap-4 px-4 py-4 items-center border-b border-outline-variant last:border-b-0 transition-colors">
+<div class="col-span-1 font-code-md text-primary">#3</div>
+<div class="col-span-3 font-code-md font-medium">github-copilot</div>
+<div class="col-span-5 font-body-md text-on-surface-variant">Standard-setting autocomplete and workspace agent.</div>
+<div class="col-span-3 text-right"><span class="bg-secondary-container text-on-secondary-fixed-variant px-2 py-1 rounded font-code-sm">Multi-IDE</span></div>
+</div>
+<div class="tool-row grid grid-cols-12 gap-4 px-4 py-4 items-center border-b border-outline-variant last:border-b-0 transition-colors">
+<div class="col-span-1 font-code-md text-primary">#4</div>
+<div class="col-span-3 font-code-md font-medium">sourcegraph-cody</div>
+<div class="col-span-5 font-body-md text-on-surface-variant">Deep context aware agent for enterprise codebases.</div>
+<div class="col-span-3 text-right"><span class="bg-secondary-container text-on-secondary-fixed-variant px-2 py-1 rounded font-code-sm">Context Engine</span></div>
+</div>
+<div class="tool-row grid grid-cols-12 gap-4 px-4 py-4 items-center border-b border-outline-variant last:border-b-0 transition-colors">
+<div class="col-span-1 font-code-md text-primary">#5</div>
+<div class="col-span-3 font-code-md font-medium">replit-agent</div>
+<div class="col-span-5 font-body-md text-on-surface-variant">From natural language prompt to deployed application.</div>
+<div class="col-span-3 text-right"><span class="bg-secondary-container text-on-secondary-fixed-variant px-2 py-1 rounded font-code-sm">Cloud-First</span></div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="max-w-container-max mx-auto px-margin py-24">
+<h2 class="font-headline-md text-headline-md mb-12 text-center">How It Works</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="border border-outline-variant p-6 rounded-lg bg-surface-container-lowest">
+<div class="font-code-md text-primary text-headline-md mb-4">01</div>
+<h3 class="font-headline-sm mb-2">Define Scope</h3>
+<p class="font-body-md text-on-surface-variant">Autocomplete, CLI, or Full Agent? Choose based on your primary interaction preference.</p>
+</div>
+<div class="border border-outline-variant p-6 rounded-lg bg-surface-container-lowest">
+<div class="font-code-md text-primary text-headline-md mb-4">02</div>
+<h3 class="font-headline-sm mb-2">Filter Data</h3>
+<p class="font-body-md text-on-surface-variant">Compare pricing models, LLM support (Claude vs GPT), and enterprise security features.</p>
+</div>
+<div class="border border-outline-variant p-6 rounded-lg bg-surface-container-lowest">
+<div class="font-code-md text-primary text-headline-md mb-4">03</div>
+<h3 class="font-headline-sm mb-2">Test Free Tier</h3>
+<p class="font-body-md text-on-surface-variant">Use our community-driven Quick-Test benchmarks to verify latency and reasoning quality.</p>
+</div>
+<div class="border border-outline-variant p-6 rounded-lg bg-surface-container-lowest">
+<div class="font-code-md text-primary text-headline-md mb-4">04</div>
+<h3 class="font-headline-sm mb-2">Build Better</h3>
+<p class="font-body-md text-on-surface-variant">Integrate the chosen tool into your existing CI/CD or local environment for maximum lift.</p>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="max-w-3xl mx-auto px-margin py-24">
+<h2 class="font-headline-md text-headline-md mb-8 text-center">Common Questions</h2>
+<div class="space-y-2">
+<div class="accordion-item border border-outline-variant rounded cursor-pointer bg-surface-container-lowest" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center p-4">
+<span class="font-headline-sm">Is my code safe with these agents?</span>
+<span class="material-symbols-outlined rotate-icon transition-transform">expand_more</span>
+</div>
+<div class="accordion-content px-4">
+<p class="pb-4 font-body-md text-on-surface-variant">Most professional tools offer 'Zero Data Retention' and opt-out for training. We explicitly tag tools that offer local-first execution or enterprise-grade privacy VPC options.</p>
+</div>
+</div>
+<div class="accordion-item border border-outline-variant rounded cursor-pointer bg-surface-container-lowest" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center p-4">
+<span class="font-headline-sm">Copilot vs. Autonomous Agents: What's the difference?</span>
+<span class="material-symbols-outlined rotate-icon transition-transform">expand_more</span>
+</div>
+<div class="accordion-content px-4">
+<p class="pb-4 font-body-md text-on-surface-variant">Copilot is largely reactive (autocomplete). Agents can plan multiple steps, run terminal commands, and fix bugs across multiple files without line-by-line guidance.</p>
+</div>
+</div>
+<div class="accordion-item border border-outline-variant rounded cursor-pointer bg-surface-container-lowest" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center p-4">
+<span class="font-headline-sm">Which LLM performs best for coding?</span>
+<span class="material-symbols-outlined rotate-icon transition-transform">expand_more</span>
+</div>
+<div class="accordion-content px-4">
+<p class="pb-4 font-body-md text-on-surface-variant">Currently, Claude 3.5 Sonnet is widely considered the industry leader for reasoning and syntax accuracy, though GPT-4o remains highly competitive for generic boilerplate.</p>
+</div>
+</div>
+<div class="accordion-item border border-outline-variant rounded cursor-pointer bg-surface-container-lowest" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center p-4">
+<span class="font-headline-sm">Do I need my own API keys?</span>
+<span class="material-symbols-outlined rotate-icon transition-transform">expand_more</span>
+</div>
+<div class="accordion-content px-4">
+<p class="pb-4 font-body-md text-on-surface-variant">Some tools (like Aider) require your own keys, while others (like Cursor or Replit) provide integrated access through a monthly subscription model.</p>
+</div>
+</div>
+<div class="accordion-item border border-outline-variant rounded cursor-pointer bg-surface-container-lowest" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center p-4">
+<span class="font-headline-sm">Do these work on legacy monoliths?</span>
+<span class="material-symbols-outlined rotate-icon transition-transform">expand_more</span>
+</div>
+<div class="accordion-content px-4">
+<p class="pb-4 font-body-md text-on-surface-variant">Context-aware tools like Cody or Cursor are specifically designed to index large codebases, making them more effective for navigating complex legacy structures than basic LLM prompts.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin max-w-container-max mx-auto gap-4">
+<div class="font-label-caps text-label-caps text-on-surface-variant">
+                AGENTIC CODING TOOLS
+            </div>
+<div class="flex gap-8 font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-all" href="#">Terms of Use</a>
+<a class="hover:text-primary transition-all" href="#">Affiliate Disclosure</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                Copyright 2026
+            </div>
+</div>
+</footer>
+<script>
+        function toggleAccordion(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't already open
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+
+        // Initialize micro-interactions
+        document.querySelectorAll('.tool-row').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.borderLeft = '2px solid #2563eb';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.borderLeft = 'none';
+            });
+        });
+    </script>
+</body></html>

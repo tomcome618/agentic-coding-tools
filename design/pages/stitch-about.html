@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f8f9fa",
+                    "surface-dim": "#d9dadb",
+                    "outline-variant": "#c3c6d7",
+                    "primary": "#004ac6",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary-fixed": "#e2e0fc",
+                    "outline": "#737686",
+                    "on-tertiary-container": "#f2eeff",
+                    "tertiary-container": "#6c6b83",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "inverse-surface": "#2e3132",
+                    "primary-container": "#2563eb",
+                    "primary-fixed": "#dbe1ff",
+                    "on-secondary-container": "#54647a",
+                    "secondary-container": "#d0e1fb",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-primary-fixed": "#00174b",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1a1a2e",
+                    "on-error-container": "#93000a",
+                    "secondary": "#505f76",
+                    "inverse-primary": "#b4c5ff",
+                    "tertiary-fixed-dim": "#c6c4df",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-surface": "#191c1d",
+                    "on-primary-container": "#eeefff",
+                    "tertiary": "#53536a",
+                    "surface": "#f8f9fa",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#45455b",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-surface-variant": "#434655",
+                    "secondary-fixed": "#d3e4fe",
+                    "background": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "error": "#ba1a1a",
+                    "surface-container": "#edeeef",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#0053db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "density-compact": "4px",
+                    "container-max": "1440px",
+                    "gutter": "16px",
+                    "margin": "24px",
+                    "density-comfortable": "12px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "code-md": ["JetBrains Mono"],
+                    "label-caps": ["Geist"],
+                    "code-sm": ["JetBrains Mono"],
+                    "headline-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "body-md": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "code-sm": ["11px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            -webkit-font-smoothing: antialiased;
+        }
+        .prose-max-width {
+            max-width: 720px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::selection {
+            background: #dbe1ff;
+            color: #004ac6;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display text-headline-md tracking-tight text-on-surface font-extrabold" href="#">Agentic Coding Tools</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer active:opacity-80 px-2 py-1" href="#">Tools</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer active:opacity-80 px-2 py-1" href="#">Compare</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer active:opacity-80 px-2 py-1" href="#">Free Tools</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer active:opacity-80 px-2 py-1" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-lg px-3 py-1.5 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search tools..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 font-body-md rounded-lg hover:bg-primary-container transition-colors cursor-pointer active:opacity-80">Sign In</button>
+</div>
+</div>
+</header>
+<main class="min-h-screen pt-16 pb-32">
+<article class="prose-max-width mx-auto px-gutter">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-on-surface-variant font-code-sm">
+<a class="hover:text-primary" href="#">root</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface">about</span>
+</nav>
+<!-- H1 Header -->
+<header class="mb-12 border-b border-outline-variant pb-8">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2 tracking-tight">About Agentic Coding Tools</h1>
+<p class="font-code-md text-code-md text-primary">Version 2.4.0-stable</p>
+</header>
+<!-- Section: What This Site Is -->
+<section class="mb-16">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">What This Site Is</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Agentic Coding Tools is a definitive resource for developers navigating the landscape of autonomous AI agents and AI-native IDEs. As the software engineering workflow shifts from "human-led, AI-assisted" to "human-supervised, agent-driven," the need for a central source of truth has never been greater.
+                </p>
+<div class="bg-surface-container p-6 border-l-4 border-primary">
+<p class="font-body-md text-body-md text-on-surface italic">
+                        "Our mission is to index, benchmark, and demystify the tools that are redefining the act of programming."
+                    </p>
+</div>
+</section>
+<!-- Section: Why We Built This -->
+<section class="mb-16">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="construction">construction</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Why We Built This</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    To provide objective, benchmark-driven clarity in a rapidly evolving space. The "AI hype" often obscures the technical reality of what these agents can actually do. We built this platform to separate vaporware from production-ready tools, giving developers the data they need to build their next-gen stacks with confidence.
+                </p>
+</section>
+<!-- Section: How We Evaluate Tools -->
+<section class="mb-16">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">How We Evaluate Tools</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="border border-outline-variant p-4 flex gap-4 items-start">
+<div class="bg-secondary-container p-2 rounded text-on-secondary-container">
+<span class="material-symbols-outlined">dataset</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-1">SWE-bench Analysis</h3>
+<p class="text-on-surface-variant">We run tools against the Software Engineering Benchmark to measure their ability to resolve real-world GitHub issues autonomously.</p>
+</div>
+</div>
+<div class="border border-outline-variant p-4 flex gap-4 items-start">
+<div class="bg-secondary-container p-2 rounded text-on-secondary-container">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-1">Latency &amp; Tokens</h3>
+<p class="text-on-surface-variant">Testing Time-to-First-Token (TTFT) and overall task completion speed, accounting for the efficiency of the underlying LLM calls.</p>
+</div>
+</div>
+<div class="border border-outline-variant p-4 flex gap-4 items-start">
+<div class="bg-secondary-container p-2 rounded text-on-secondary-container">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-1">Real-world Completion</h3>
+<p class="text-on-surface-variant">Beyond synthetic benchmarks, we test tools on complex refactoring and greenfield development tasks to assess architectural reasoning.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Independence Statement -->
+<section class="mb-16 bg-surface-container-high p-8 border border-outline">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Independence Statement</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed font-semibold">
+                    We are strictly independent.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                    No tool can pay for a higher ranking or biased review. Our rankings are derived solely from our standardized testing suite and community feedback loops. We maintain this stance to ensure we remain a trusted infrastructure component for the developer community.
+                </p>
+</section>
+<!-- Section: Contact -->
+<section class="border-t border-outline-variant pt-12">
+<div class="flex flex-col items-center text-center">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-4">Get in Touch</h2>
+<p class="text-on-surface-variant mb-6">Have questions about our benchmarking process or want to submit a tool for review?</p>
+<a class="font-code-md text-headline-md text-primary hover:underline flex items-center gap-2" href="mailto:info@agenticcodingtools.com">
+<span class="material-symbols-outlined">mail</span>
+                        info@agenticcodingtools.com
+                    </a>
+</div>
+</section>
+</article>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center py-density-table px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-4">
+<span class="font-display text-headline-md text-on-surface font-bold">Agentic Coding Tools</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Agentic Coding Tools. All rights reserved.</span>
+</div>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Terms of Use</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Affiliate Disclosure</a>
+</div>
+</div>
+</footer>
+<script>
+        // Subtle micro-interaction for the breadcrumbs
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transform = 'translateX(2px)';
+                link.style.transition = 'transform 0.2s ease';
+            });
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Initialize Material Symbols with Fill if needed
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if (icon.getAttribute('data-weight') === 'fill') {
+                icon.style.fontVariationSettings = "'FILL' 1";
+            }
+        });
+    </script>
+</body></html>

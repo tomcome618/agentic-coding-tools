@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tool-card {
+            border-color: #004ac6 !important;
+            border-width: 2px !important;
+            background-color: #f3f4f5 !important;
+        }
+        /* Custom scrollbar for high-density tables */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c3c6d7; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #737686; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e2e0fc",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1a1a2e",
+                        "surface-tint": "#0053db",
+                        "primary": "#004ac6",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#45455b",
+                        "tertiary": "#53536a",
+                        "on-background": "#191c1d",
+                        "primary-container": "#2563eb",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "tertiary-container": "#6c6b83",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d3e4fe",
+                        "tertiary-fixed-dim": "#c6c4df",
+                        "surface": "#f8f9fa",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-container": "#54647a",
+                        "on-primary-container": "#eeefff",
+                        "surface-container": "#edeeef",
+                        "outline": "#737686",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#505f76",
+                        "on-tertiary-container": "#f2eeff",
+                        "on-surface": "#191c1d",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-surface": "#2e3132",
+                        "surface-dim": "#d9dadb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "density-comfortable": "12px",
+                        "margin": "24px",
+                        "density-compact": "4px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Geist"],
+                        "code-md": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "code-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "code-sm": ["11px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant z-50">
+<div class="flex justify-between items-center px-margin py-density-comfortable max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">Syntactic Utility</span>
+<nav class="hidden md:flex gap-margin items-center ml-margin">
+<a class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant hover:bg-surface-container-low transition-colors px-2 py-1" href="#">Explorer</a>
+<a class="font-headline-sm text-headline-sm text-primary border-b-2 border-primary pb-1" href="#">Benchmarks</a>
+<a class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant hover:bg-surface-container-low transition-colors px-2 py-1" href="#">Compare</a>
+<a class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant hover:bg-surface-container-low transition-colors px-2 py-1" href="#">Changelog</a>
+</nav>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="hidden sm:flex items-center bg-surface-container-low border border-outline-variant px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" style="font-size: 18px;">search</span>
+<input class="bg-transparent border-none outline-none text-body-sm w-32 focus:w-48 transition-all" placeholder="Search tools..." type="text"/>
+</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">terminal</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+<button class="bg-primary text-on-primary px-4 py-2 font-headline-sm text-headline-sm rounded hover:brightness-110 active:scale-95 duration-150">Deploy Agent</button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin py-margin">
+<!-- Hero Section -->
+<section class="mb-12">
+<h1 class="font-headline-lg text-[40px] leading-tight font-extrabold text-on-surface tracking-tight mb-2">Compare AI Coding Tools Side-by-Side</h1>
+<p class="font-body-lg text-secondary max-w-2xl">
+                The definitive landscape for agentic development. We analyze latency, SWE-bench performance, and cost efficiency across the industry's leading IDEs and autonomous agents.
+            </p>
+</section>
+<!-- Tool Selection Grid -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<h2 class="font-label-caps text-label-caps text-outline uppercase">1. Select Tools to Compare</h2>
+<span class="text-body-sm text-primary font-medium" id="selection-count">0/6 selected</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter" id="tool-grid">
+<!-- Tool Cards -->
+<div class="group cursor-pointer border border-outline-variant p-4 flex items-center justify-between transition-all hover:bg-surface-container-low" data-tool="claude" onclick="toggleTool(this, 'claude')">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-highest border border-outline-variant rounded">
+<span class="material-symbols-outlined text-primary">smart_toy</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm m-0">Claude Code</p>
+<p class="text-body-sm text-on-surface-variant m-0">Anthropic's CLI Agent</p>
+</div>
+</div>
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5 pointer-events-none" id="chk-claude" type="checkbox"/>
+</div>
+<div class="group cursor-pointer border border-outline-variant p-4 flex items-center justify-between transition-all hover:bg-surface-container-low" data-tool="cursor" onclick="toggleTool(this, 'cursor')">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-highest border border-outline-variant rounded">
+<span class="material-symbols-outlined text-primary">edit_square</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm m-0">Cursor</p>
+<p class="text-body-sm text-on-surface-variant m-0">The AI-native IDE</p>
+</div>
+</div>
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5 pointer-events-none" id="chk-cursor" type="checkbox"/>
+</div>
+<div class="group cursor-pointer border border-outline-variant p-4 flex items-center justify-between transition-all hover:bg-surface-container-low" data-tool="aider" onclick="toggleTool(this, 'aider')">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-highest border border-outline-variant rounded">
+<span class="material-symbols-outlined text-primary">terminal</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm m-0">Aider</p>
+<p class="text-body-sm text-on-surface-variant m-0">CLI Chat with LLMs</p>
+</div>
+</div>
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5 pointer-events-none" id="chk-aider" type="checkbox"/>
+</div>
+<div class="group cursor-pointer border border-outline-variant p-4 flex items-center justify-between transition-all hover:bg-surface-container-low" data-tool="copilot" onclick="toggleTool(this, 'copilot')">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-highest border border-outline-variant rounded">
+<span class="material-symbols-outlined text-primary">data_object</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm m-0">GitHub Copilot</p>
+<p class="text-body-sm text-on-surface-variant m-0">The original companion</p>
+</div>
+</div>
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5 pointer-events-none" id="chk-copilot" type="checkbox"/>
+</div>
+<div class="group cursor-pointer border border-outline-variant p-4 flex items-center justify-between transition-all hover:bg-surface-container-low" data-tool="replit" onclick="toggleTool(this, 'replit')">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-highest border border-outline-variant rounded">
+<span class="material-symbols-outlined text-primary">cloud</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm m-0">Replit Agent</p>
+<p class="text-body-sm text-on-surface-variant m-0">Autonomous cloud builds</p>
+</div>
+</div>
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5 pointer-events-none" id="chk-replit" type="checkbox"/>
+</div>
+<div class="group cursor-pointer border border-outline-variant p-4 flex items-center justify-between transition-all hover:bg-surface-container-low" data-tool="windsurf" onclick="toggleTool(this, 'windsurf')">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container-highest border border-outline-variant rounded">
+<span class="material-symbols-outlined text-primary">air</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm m-0">Windsurf</p>
+<p class="text-body-sm text-on-surface-variant m-0">Agentic IDE Flow</p>
+</div>
+</div>
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5 pointer-events-none" id="chk-windsurf" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- Comparison Table / Empty State Area -->
+<section class="min-h-[400px]" id="comparison-area">
+<!-- Empty State -->
+<div class="flex flex-col items-center justify-center py-20 border-2 border-dashed border-outline-variant rounded-xl" id="empty-state">
+<div class="w-24 h-24 mb-6 relative">
+<div class="absolute inset-0 bg-secondary-container opacity-20 rounded-full animate-pulse"></div>
+<div class="absolute inset-4 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" style="font-size: 32px;">compare_arrows</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Ready to Compare</h3>
+<p class="text-body-md text-secondary max-w-xs text-center">Select 2-4 tools above to see a high-density side-by-side technical comparison.</p>
+</div>
+<!-- The High-Density Table (Hidden by default) -->
+<div class="hidden overflow-x-auto border border-outline-variant rounded-lg" id="table-container">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 z-10 bg-surface-container-low">
+<tr id="table-head-row">
+<th class="p-4 border-b border-r border-outline-variant bg-surface w-64 font-label-caps text-label-caps text-outline uppercase">Capability Matrix</th>
+<!-- Dynamic headers injected here -->
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant" id="table-body">
+<!-- Rows -->
+<tr class="bg-surface group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">Free Tier</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface-container-lowest group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">Starting Price</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">SWE-bench (Lite)</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface-container-lowest group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">Self-hosted</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">IDE Support</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface-container-lowest group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">Languages</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">Agent Mode</td>
+<!-- Tool columns -->
+</tr>
+<tr class="bg-surface-container-lowest group">
+<td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">Multi-file Edits</td>
+<!-- Tool columns -->
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Insights Banner -->
+<section class="mt-12 p-margin bg-primary-container text-on-primary-container rounded-xl flex flex-col md:flex-row items-center gap-margin">
+<div class="flex-1">
+<h4 class="font-headline-md text-headline-md mb-2">Developer Insight</h4>
+<p class="font-body-md opacity-90">While Copilot remains the standard for autocomplete, CLI-first agents like Aider and Claude Code are seeing 40% faster complex task completion rates in open-source benchmarks. Choose based on your tolerance for terminal-centric workflows.</p>
+</div>
+<button class="bg-on-primary-container text-primary-container px-6 py-3 font-headline-sm text-headline-sm rounded hover:bg-white transition-colors whitespace-nowrap">View Detailed Benchmarks</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-low border-t border-outline-variant mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin py-margin max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-2">
+<span class="font-code-md text-code-md font-bold text-on-surface">Syntactic Utility</span>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed-variant">© 2024 Syntactic Utility. Engineered for high-density clarity.</p>
+</div>
+<div class="flex gap-margin">
+<a class="font-body-sm text-body-sm text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Documentation</a>
+<a class="font-body-sm text-body-sm text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">API</a>
+<a class="font-body-sm text-body-sm text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Status</a>
+<a class="font-body-sm text-body-sm text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Security</a>
+<a class="font-body-sm text-body-sm text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<script>
+        const toolData = {
+            claude: { name: "Claude Code", free: "Yes", price: "Usage-based", swe: "Elite (40%+)", hosted: "No", ide: "CLI Only", lang: "All", mode: "Autonomous", multi: "Yes" },
+            cursor: { name: "Cursor", free: "Yes (Trial)", price: "$20/mo", swe: "Top Tier", hosted: "No", ide: "Forked VS Code", lang: "All", mode: "Hybrid", multi: "Yes" },
+            aider: { name: "Aider", free: "Yes (BYO Key)", price: "$0 (Open Source)", swe: "Top Tier", hosted: "Yes", ide: "CLI / Terminal", lang: "All", mode: "Autonomous", multi: "Yes" },
+            copilot: { name: "GitHub Copilot", free: "No", price: "$10/mo", swe: "High", hosted: "No", ide: "VS Code / JetBrains", lang: "All", mode: "Copilot", multi: "Partial" },
+            replit: { name: "Replit Agent", free: "No", price: "$25/mo", swe: "High", hosted: "No", ide: "Cloud Browser", lang: "Web Stack Focus", mode: "Autonomous", multi: "Yes" },
+            windsurf: { name: "Windsurf", free: "Yes", price: "$20/mo", swe: "Elite", hosted: "No", ide: "VS Code Based", lang: "All", mode: "Autonomous", multi: "Yes" }
+        };
+
+        const selectedTools = new Set();
+
+        function toggleTool(element, id) {
+            const checkbox = element.querySelector('input');
+            if (selectedTools.has(id)) {
+                selectedTools.delete(id);
+                element.classList.remove('active-tool-card');
+                checkbox.checked = false;
+            } else {
+                if (selectedTools.size >= 4) {
+                    alert('Maximum 4 tools for comparison.');
+                    return;
+                }
+                selectedTools.add(id);
+                element.classList.add('active-tool-card');
+                checkbox.checked = true;
+            }
+            updateTable();
+        }
+
+        function updateTable() {
+            const countLabel = document.getElementById('selection-count');
+            const emptyState = document.getElementById('empty-state');
+            const tableContainer = document.getElementById('table-container');
+            const tableHead = document.getElementById('table-head-row');
+            const tableBody = document.getElementById('table-body');
+
+            countLabel.innerText = `${selectedTools.size}/6 selected`;
+
+            if (selectedTools.size < 2) {
+                emptyState.classList.remove('hidden');
+                tableContainer.classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            tableContainer.classList.remove('hidden');
+
+            // Build Headers
+            const headerCells = Array.from(selectedTools).map(id => `
+                <th class="p-4 border-b border-outline-variant bg-surface-container-low font-headline-sm text-headline-sm text-primary">
+                    ${toolData[id].name}
+                </th>
+            `).join('');
+            tableHead.innerHTML = `<th class="p-4 border-b border-r border-outline-variant bg-surface w-64 font-label-caps text-label-caps text-outline uppercase">Capability Matrix</th>` + headerCells;
+
+            // Build Rows
+            const keys = ['free', 'price', 'swe', 'hosted', 'ide', 'lang', 'mode', 'multi'];
+            const labels = ['Free Tier', 'Starting Price', 'SWE-bench (Lite)', 'Self-hosted', 'IDE Support', 'Languages', 'Agent Mode', 'Multi-file Edits'];
+            
+            let rowHtml = '';
+            keys.forEach((key, index) => {
+                const isStriped = index % 2 !== 0;
+                let row = `<tr class="${isStriped ? 'bg-surface-container-lowest' : 'bg-surface'}">
+                    <td class="p-4 border-r border-outline-variant font-headline-sm text-headline-sm">${labels[index]}</td>`;
+                
+                // Track values for "difference highlighting"
+                const values = Array.from(selectedTools).map(id => toolData[id][key]);
+                const allSame = values.every(v => v === values[0]);
+
+                selectedTools.forEach(id => {
+                    const val = toolData[id][key];
+                    let cellClass = "p-4 font-code-md text-code-md text-on-surface-variant";
+                    
+                    // Highlight Elite/Top Tier logic
+                    if (key === 'swe' && (val.includes('Elite') || val.includes('Top'))) {
+                        cellClass += " font-bold text-primary";
+                    }
+
+                    // Highlight differences
+                    if (!allSame) {
+                        cellClass += " bg-primary/5";
+                    }
+
+                    row += `<td class="${cellClass}">${val}</td>`;
+                });
+
+                row += `</tr>`;
+                rowHtml += row;
+            });
+            tableBody.innerHTML = rowHtml;
+        }
+    </script>
+</body></html>

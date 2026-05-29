@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Claude Code - Agentic Coding Tools</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f5f2ff",
+                        "inverse-primary": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface": "#fcf8ff",
+                        "on-primary-container": "#eeefff",
+                        "surface-variant": "#e2e0fc",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434655",
+                        "on-surface": "#1a1a2e",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "outline": "#737686",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "secondary-container": "#acbfff",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-highest": "#e2e0fc",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#394c84",
+                        "surface-dim": "#dad7f3",
+                        "surface-tint": "#0053db",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#943700",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#efecff",
+                        "primary-container": "#2563eb",
+                        "secondary": "#495c95",
+                        "on-tertiary-fixed": "#360f00",
+                        "background": "#fafbfc",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#00174b",
+                        "on-background": "#1a1a2e",
+                        "tertiary-container": "#bc4800",
+                        "inverse-surface": "#2f2e43",
+                        "surface-container-high": "#e8e5ff",
+                        "inverse-on-surface": "#f2efff",
+                        "on-tertiary-container": "#ffede6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "container-max": "1280px",
+                        "gutter": "16px",
+                        "density-table": "12px",
+                        "margin-mobile": "16px",
+                        "density-compact": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "code-md": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "code-md": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fafbfc; color: #1a1a2e; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .border-standard { border: 1px solid #e2e8f0; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; }
+        .accordion-open .accordion-content { max-height: 500px; }
+        .accordion-open .chevron { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Sticky Header -->
+<header class="w-full sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display text-headline-md tracking-tight text-on-surface">Agentic Coding Tools</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-body-lg text-body-lg text-primary border-b-2 border-primary pb-1 cursor-pointer" href="#">Tools</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer" href="#">Compare</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer" href="#">Free Tools</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 cursor-pointer" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center border border-outline-variant px-3 py-1 bg-surface-container-low rounded">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant ml-2">Search tools...</span>
+</div>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded hover:opacity-90 transition-opacity">Sign In</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter md:px-margin-desktop py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-on-surface-variant font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Tools</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-medium">Claude Code</span>
+</nav>
+<!-- Typography -->
+<section class="mb-12">
+<h1 class="font-display text-display text-on-surface mb-2 max-w-4xl">Claude Code: What It Is, What It Costs, and Who It's For</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Anthropic's command-line agent for complex coding tasks.</p>
+</section>
+<!-- At a Glance -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-0 border-standard bg-white mb-12">
+<div class="bg-surface-bright border-b border-r border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Maker</span>
+<span class="font-headline-md text-headline-md text-on-surface">Anthropic</span>
+</div>
+<div class="bg-surface-bright border-b border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Type</span>
+<span class="font-headline-md text-headline-md text-on-surface">CLI Agent</span>
+</div>
+<div class="bg-surface-bright border-b border-r border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Free Tier</span>
+<span class="font-headline-md text-headline-md text-on-surface">Yes (Usage based)</span>
+</div>
+<div class="bg-surface-bright border-b border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Starting Price</span>
+<span class="font-headline-md text-headline-md text-on-surface">Pay-as-you-go</span>
+</div>
+<div class="bg-surface-bright border-b border-r border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">SWE-bench Score</span>
+<span class="font-headline-md text-headline-md text-on-surface">Top Tier</span>
+</div>
+<div class="bg-surface-bright border-b border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Self-hosted</span>
+<span class="font-headline-md text-headline-md text-on-surface">No</span>
+</div>
+<div class="bg-surface-bright border-r border-outline-variant p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">IDE Support</span>
+<span class="font-headline-md text-headline-md text-on-surface">Any (CLI-based)</span>
+</div>
+<div class="bg-surface-bright p-density-table flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Agent Mode</span>
+<span class="font-headline-md text-headline-md text-on-surface">Full Autonomous</span>
+</div>
+</section>
+<!-- Free Tier Section -->
+<section class="mb-12 p-8 border-standard bg-white border-l-4 border-l-primary">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                Free Tier Credits
+            </h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-4 max-w-3xl">
+<p>New users of Claude Code are eligible for a one-time trial credit system. Upon initialization of the CLI tool, Anthropic provides <strong>$25 in free usage credits</strong> to test autonomous capabilities.</p>
+<p>These credits are applied directly to your Console account and cover both input and output tokens. Because Claude Code is highly efficient with context management, this trial typically covers approximately 20-30 complex debugging sessions or feature implementations.</p>
+</div>
+</section>
+<!-- Pricing Table -->
+<section class="mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Transparent Pricing</h2>
+<div class="overflow-x-auto border-standard rounded-lg">
+<table class="w-full text-left border-collapse bg-white">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="p-density-table font-label-caps text-label-caps text-outline border-b border-outline-variant">Tier</th>
+<th class="p-density-table font-label-caps text-label-caps text-outline border-b border-outline-variant">Cost</th>
+<th class="p-density-table font-label-caps text-label-caps text-outline border-b border-outline-variant">Monthly Limit</th>
+<th class="p-density-table font-label-caps text-label-caps text-outline border-b border-outline-variant">Support</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-body-sm">
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
+<td class="p-density-table font-semibold">Free Trial</td>
+<td class="p-density-table">$0 (One-time)</td>
+<td class="p-density-table">$25 Credit</td>
+<td class="p-density-table">Community</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
+<td class="p-density-table font-semibold">Starter</td>
+<td class="p-density-table">Pay-as-you-go</td>
+<td class="p-density-table">Unlimited</td>
+<td class="p-density-table">Standard Email</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors bg-primary/5">
+<td class="p-density-table font-semibold text-primary">Pro</td>
+<td class="p-density-table">Usage + $20/mo</td>
+<td class="p-density-table">High Priority</td>
+<td class="p-density-table">Priority Tickets</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="p-density-table font-semibold">Enterprise</td>
+<td class="p-density-table">Custom Quote</td>
+<td class="p-density-table">SLA Guaranteed</td>
+<td class="p-density-table">24/7 Dedicated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Features -->
+<section class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Core Capabilities</h2>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="text-primary font-bold mt-1 text-sm select-none">*</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant"><strong>Deep Shell Integration:</strong> Runs commands, reads logs, and interacts with your environment directly.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-primary font-bold mt-1 text-sm select-none">*</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant"><strong>Git Awareness:</strong> Understands branch history, staging areas, and can craft high-quality commit messages.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-primary font-bold mt-1 text-sm select-none">*</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant"><strong>Recursive Debugging:</strong> It doesn't just suggest fixes; it applies them, runs tests, and iterates until fixed.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-primary font-bold mt-1 text-sm select-none">*</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant"><strong>Architecture Planning:</strong> Capable of analyzing large multi-file codebases to propose structural changes.</span>
+</li>
+</ul>
+</div>
+<div class="bg-on-surface text-surface p-6 rounded-lg font-code-md text-code-md border border-on-surface-variant">
+<div class="flex items-center gap-2 mb-4 border-b border-on-surface-variant pb-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="ml-2 text-outline-variant text-[12px]">terminal — zsh</span>
+</div>
+<div class="space-y-2">
+<p class="text-inverse-primary">$ claude code "refactor auth logic to use JWT"</p>
+<p class="text-outline-variant">Searching codebase...</p>
+<p class="text-outline-variant">Found 4 relevant files.</p>
+<p class="text-on-primary-container">Refactoring src/lib/auth.ts...</p>
+<p class="text-on-primary-container">Updating middleware.ts...</p>
+<p class="text-tertiary-fixed-dim">Success: 12 tests passed, 0 failures.</p>
+<p class="text-inverse-primary animate-pulse">_</p>
+</div>
+</div>
+</section>
+<!-- Alternatives -->
+<section class="mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Comparison Matrix</h2>
+<div class="border-standard bg-white rounded-lg overflow-hidden">
+<div class="bg-surface-container-low p-density-table border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-outline">IF YOU WANT... TRY INSTEAD</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-3 p-density-table items-center">
+<span class="font-body-lg text-body-lg font-semibold text-on-surface">Open-source CLI</span>
+<span class="font-body-sm text-body-sm text-primary">Aider</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant md:col-span-1">Best for terminal veterans who want to bring their own API keys and use open models.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 p-density-table items-center">
+<span class="font-body-lg text-body-lg font-semibold text-on-surface">Full IDE Experience</span>
+<span class="font-body-sm text-body-sm text-primary">Cursor</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant md:col-span-1">The leading VS Code fork with natively integrated AI features and chat sidebars.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 p-density-table items-center">
+<span class="font-body-lg text-body-lg font-semibold text-on-surface">Agentic UX</span>
+<span class="font-body-sm text-body-sm text-primary">Windsurf</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant md:col-span-1">Highly visual agentic IDE with deep context awareness and visual flow charts.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Frequently Asked Questions</h2>
+<div class="space-y-4 max-w-3xl">
+<!-- FAQ 1 -->
+<div class="border-standard bg-white rounded cursor-pointer group accordion-item" onclick="this.classList.toggle('accordion-open')">
+<div class="p-4 flex justify-between items-center transition-colors group-hover:bg-surface-bright">
+<span class="font-body-lg text-body-lg font-semibold">Is it safe to give a CLI agent full shell access?</span>
+<span class="material-symbols-outlined chevron transition-transform text-outline">expand_more</span>
+</div>
+<div class="accordion-content">
+<div class="p-4 pt-0 text-body-sm text-on-surface-variant border-t border-outline-variant bg-surface-bright">
+                            Claude Code operates with a "human-in-the-loop" default. For sensitive operations like deleting files or making network requests, it will prompt for explicit permission unless started in --yes mode.
+                        </div>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="border-standard bg-white rounded cursor-pointer group accordion-item" onclick="this.classList.toggle('accordion-open')">
+<div class="p-4 flex justify-between items-center transition-colors group-hover:bg-surface-bright">
+<span class="font-body-lg text-body-lg font-semibold">Do I need my own Anthropic API key?</span>
+<span class="material-symbols-outlined chevron transition-transform text-outline">expand_more</span>
+</div>
+<div class="accordion-content">
+<div class="p-4 pt-0 text-body-sm text-on-surface-variant border-t border-outline-variant bg-surface-bright">
+                            Yes, Claude Code currently requires an active Anthropic Console account. It uses your account balance to pay for tokens used during the session.
+                        </div>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="border-standard bg-white rounded cursor-pointer group accordion-item" onclick="this.classList.toggle('accordion-open')">
+<div class="p-4 flex justify-between items-center transition-colors group-hover:bg-surface-bright">
+<span class="font-body-lg text-body-lg font-semibold">Can it work with legacy or undocumented code?</span>
+<span class="material-symbols-outlined chevron transition-transform text-outline">expand_more</span>
+</div>
+<div class="accordion-content">
+<div class="p-4 pt-0 text-body-sm text-on-surface-variant border-t border-outline-variant bg-surface-bright">
+                            Claude Code is specifically designed for discovery. It can index massive legacy projects and use tool-calling to grep through files, building an internal mental model of how components interact.
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 text-center border-t border-outline-variant mt-20">
+<h2 class="font-display text-display text-on-surface mb-6">Ready to automate your terminal?</h2>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<button class="px-8 py-4 bg-primary-container text-on-primary-container font-headline-md text-headline-md rounded hover:opacity-90 active:scale-95 transition-all">Get Started with Claude Code</button>
+<button class="px-8 py-4 border border-outline-variant text-on-surface font-headline-md text-headline-md rounded hover:bg-surface-container transition-colors">Read Documentation</button>
+</div>
+<p class="mt-4 font-body-sm text-body-sm text-on-surface-variant">Includes $25 in free trial credits for new accounts.</p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-density-table px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
+<span class="font-display text-headline-md text-on-surface">Agentic Coding Tools</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">© 2026 Agentic Coding Tools. All rights reserved.</p>
+</div>
+<div class="flex gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Terms of Use</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Affiliate Disclosure</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for terminal effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const terminalLines = document.querySelectorAll('.text-on-primary-container, .text-tertiary-fixed-dim');
+            terminalLines.forEach((line, index) => {
+                line.style.opacity = '0';
+                setTimeout(() => {
+                    line.style.transition = 'opacity 0.3s ease';
+                    line.style.opacity = '1';
+                }, 1000 + (index * 600));
+            });
+        });
+    </script>
+</body></html>

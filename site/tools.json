@@ -1,0 +1,305 @@
+{
+  "tools": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "maker": "Anthropic",
+      "type": "Terminal-native CLI",
+      "freeTier": true,
+      "freeTierLabel": "Yes (limited credits)",
+      "startingPrice": "$20/mo",
+      "sweBench": "~82%",
+      "selfHosted": false,
+      "ideIntegrations": [
+        "Terminal",
+        "VS Code"
+      ],
+      "languages": [
+        "Python",
+        "JS",
+        "TS",
+        "Go",
+        "Rust",
+        "Java",
+        "C++"
+      ],
+      "agentMode": true,
+      "description": "Anthropic's agentic coding tool. Terminal-native. 54% market share among AI coding tools. Best suited for developers who prioritize code quality and reliability over IDE integration.",
+      "freeTierDesc": "You can use Claude Code with Claude's free-tier API credits or by connecting to a paid Anthropic account. Free credits are limited and reset monthly.",
+      "pricingTiers": [
+        {
+          "plan": "Free",
+          "price": "$0",
+          "details": "Limited API credits, rate-limited access"
+        },
+        {
+          "plan": "Pro",
+          "price": "$20/mo",
+          "details": "Higher limits, priority access"
+        },
+        {
+          "plan": "Max",
+          "price": "$100/mo",
+          "details": "Maximum limits, early features"
+        },
+        {
+          "plan": "API",
+          "price": "Pay-per-token",
+          "details": "Full control, usage-based billing"
+        }
+      ],
+      "features": [
+        "Autonomous multi-file editing",
+        "Git-aware",
+        "Terminal-native",
+        "Custom instructions (CLAUDE.md)",
+        "VS Code extension",
+        "Enterprise features (SSO, audit logs)"
+      ],
+      "alternatives": [
+        {
+          "want": "IDE-native experience",
+          "toolId": "cursor"
+        },
+        {
+          "want": "Lowest cost per token",
+          "toolId": "gemini-cli"
+        },
+        {
+          "want": "Open-source flexibility",
+          "toolId": "codex-cli"
+        },
+        {
+          "want": "Tight GitHub integration",
+          "toolId": "github-copilot"
+        }
+      ],
+      "sponsored": false,
+      "slug": "claude-code"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "maker": "Cursor (Anysphere)",
+      "type": "IDE (VS Code fork)",
+      "freeTier": true,
+      "freeTierLabel": "2-week Pro trial",
+      "startingPrice": "$20/mo",
+      "sweBench": "~82%",
+      "selfHosted": false,
+      "ideIntegrations": [
+        "VS Code (forked)"
+      ],
+      "languages": [
+        "All major"
+      ],
+      "agentMode": true,
+      "description": "IDE-native agentic coding tool. $2B ARR. Supports 8-way parallel cloud agents. Best for developers who want AI embedded directly in their editor.",
+      "freeTierDesc": "2-week free trial of Pro plan. After trial, limited free tier available.",
+      "pricingTiers": [
+        {
+          "plan": "Free",
+          "price": "$0",
+          "details": "Limited completions after trial"
+        },
+        {
+          "plan": "Pro",
+          "price": "$20/mo",
+          "details": "Full features, priority access"
+        }
+      ],
+      "features": [
+        "8-way parallel agents",
+        "IDE-native (VS Code fork)",
+        "Multi-file editing",
+        "Composer (chat-based coding)",
+        "@-mentions for context",
+        "Rules system"
+      ],
+      "alternatives": [
+        {
+          "want": "Terminal-native experience",
+          "toolId": "claude-code"
+        },
+        {
+          "want": "Lower cost",
+          "toolId": "gemini-cli"
+        }
+      ],
+      "sponsored": false,
+      "slug": "cursor"
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "maker": "Google",
+      "type": "Terminal CLI",
+      "freeTier": true,
+      "freeTierLabel": "Yes (free tier)",
+      "startingPrice": "$0 (pay-as-you-go)",
+      "sweBench": "~80%",
+      "selfHosted": false,
+      "ideIntegrations": [
+        "Terminal",
+        "VS Code",
+        "JetBrains"
+      ],
+      "languages": [
+        "All major"
+      ],
+      "agentMode": true,
+      "description": "Google's open-source agentic coding CLI. 1/10 the cost of Opus. Best for budget-conscious developers who want open-source flexibility.",
+      "freeTierDesc": "Truly free tier with generous limits. Pay-as-you-go for higher usage.",
+      "pricingTiers": [
+        {
+          "plan": "Free",
+          "price": "$0",
+          "details": "Generous free tier"
+        },
+        {
+          "plan": "Pay-as-you-go",
+          "price": "~1/10 Opus cost",
+          "details": "Usage-based billing"
+        }
+      ],
+      "features": [
+        "Open-source",
+        "Terminal-native",
+        "Multi-IDE support",
+        "Lowest cost per token",
+        "Google ecosystem integration",
+        "Gemini model access"
+      ],
+      "alternatives": [
+        {
+          "want": "Best code quality",
+          "toolId": "claude-code"
+        },
+        {
+          "want": "IDE-native",
+          "toolId": "cursor"
+        }
+      ],
+      "sponsored": false,
+      "slug": "gemini-cli"
+    },
+    {
+      "id": "codex-cli",
+      "name": "Codex CLI",
+      "maker": "OpenAI",
+      "type": "Terminal CLI",
+      "freeTier": true,
+      "freeTierLabel": "2 months free",
+      "startingPrice": "Pay-per-token",
+      "sweBench": "~81%",
+      "selfHosted": false,
+      "ideIntegrations": [
+        "Terminal",
+        "VS Code"
+      ],
+      "languages": [
+        "All major"
+      ],
+      "agentMode": true,
+      "description": "OpenAI's agentic coding CLI. Features Goal mode for high-level task decomposition. 2 months free for new users.",
+      "freeTierDesc": "2 months free for new users. After that, pay-per-token billing.",
+      "pricingTiers": [
+        {
+          "plan": "Free trial",
+          "price": "$0",
+          "details": "2 months free for new users"
+        },
+        {
+          "plan": "Pay-per-token",
+          "price": "Varies",
+          "details": "Usage-based billing"
+        }
+      ],
+      "features": [
+        "Goal mode (task decomposition)",
+        "OpenAI ecosystem",
+        "Terminal-native",
+        "VS Code extension",
+        "GPT-5.5 powered",
+        "Multi-file editing"
+      ],
+      "alternatives": [
+        {
+          "want": "Best code quality",
+          "toolId": "claude-code"
+        },
+        {
+          "want": "Lowest cost",
+          "toolId": "gemini-cli"
+        }
+      ],
+      "sponsored": false,
+      "slug": "codex-cli"
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "maker": "GitHub (Microsoft)",
+      "type": "IDE extension",
+      "freeTier": true,
+      "freeTierLabel": "Yes (free tier)",
+      "startingPrice": "$10/mo",
+      "sweBench": "~78%",
+      "selfHosted": false,
+      "ideIntegrations": [
+        "VS Code",
+        "JetBrains",
+        "Neovim"
+      ],
+      "languages": [
+        "All major"
+      ],
+      "agentMode": true,
+      "description": "The incumbent. Now with agent mode in 2026. Largest install base. Best for developers already in the GitHub ecosystem.",
+      "freeTierDesc": "Free tier available for individual developers with limited completions per month.",
+      "pricingTiers": [
+        {
+          "plan": "Free",
+          "price": "$0",
+          "details": "Limited completions/month"
+        },
+        {
+          "plan": "Individual",
+          "price": "$10/mo",
+          "details": "Unlimited completions"
+        },
+        {
+          "plan": "Business",
+          "price": "$19/mo",
+          "details": "Team features, policies"
+        },
+        {
+          "plan": "Enterprise",
+          "price": "$39/mo",
+          "details": "SSO, audit, custom models"
+        }
+      ],
+      "features": [
+        "IDE-native (VS Code, JetBrains, Neovim)",
+        "Agent mode (new in 2026)",
+        "GitHub ecosystem",
+        "Largest install base",
+        "Code review assistance",
+        "Multi-model support"
+      ],
+      "alternatives": [
+        {
+          "want": "Better code quality",
+          "toolId": "claude-code"
+        },
+        {
+          "want": "IDE-native experience",
+          "toolId": "cursor"
+        }
+      ],
+      "sponsored": false,
+      "slug": "github-copilot"
+    }
+  ],
+  "updatedAt": "2026-05-29"
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /privacy/
+Disallow: /terms/
+Disallow: /disclosure/
+
+Sitemap: https://agentictools.dev/sitemap.xml
