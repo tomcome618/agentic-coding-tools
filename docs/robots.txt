@@ -3,5 +3,6 @@ Allow: /
 Disallow: /privacy/
 Disallow: /terms/
 Disallow: /disclosure/
+Disallow: /cdn-cgi/
 
 Sitemap: https://ai-coding-tool.com/sitemap.xml
