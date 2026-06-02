@@ -5,7 +5,7 @@
 | 字段 | 值 |
 |------|-----|
 | 项目 | `agentic-coding-tools` |
-| 候选域名 | `agentictools.dev` / `aicoding.tools` [待确认] |
+| 候选域名 | `ai-coding-tool.com` / `aicoding.tools` [待确认] |
 | 当前阶段 | `02-product` |
 | Agent | `moce` |
 | 日期 | 2026-05-28 |
@@ -154,7 +154,7 @@
 | Hosting | Cloudflare Pages | 免费、快、自动部署 |
 | Data | JSON/MDX files (no DB) | 工具数 <100，无需 DB |
 | Analytics | Plausible 或 Cloudflare Web Analytics | 隐私友好 |
-| Domain | `agentictools.dev` [待确认] | .dev TLD 适合开发工具 |
+| Domain | `ai-coding-tool.com` [待确认] | .dev TLD 适合开发工具 |
 
 ---
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://agentictools.dev/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://agentictools.dev/tools/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://agentictools.dev/compare/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agentictools.dev/free-tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agentictools.dev/tools/claude-code/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agentictools.dev/tools/cursor/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agentictools.dev/tools/gemini-cli/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agentictools.dev/tools/codex-cli/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agentictools.dev/tools/github-copilot/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agentictools.dev/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://agentictools.dev/blog/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://agentictools.dev/blog/best-agentic-ai-coding-tools-2026/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://agentictools.dev/blog/claude-code-vs-cursor-vs-copilot/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-coding-tool.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ai-coding-tool.com/tools/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ai-coding-tool.com/compare/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-coding-tool.com/free-tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-coding-tool.com/tools/claude-code/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-coding-tool.com/tools/cursor/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-coding-tool.com/tools/gemini-cli/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-coding-tool.com/tools/codex-cli/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-coding-tool.com/tools/github-copilot/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-coding-tool.com/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-coding-tool.com/blog/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-coding-tool.com/blog/best-agentic-ai-coding-tools-2026/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-coding-tool.com/blog/claude-code-vs-cursor-vs-copilot/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
