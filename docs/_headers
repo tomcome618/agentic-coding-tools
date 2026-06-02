@@ -1,0 +1,9 @@
+# Cloudflare Pages Headers — SEO
+# Prevent unnecessary 308 redirects on trailing slash
+# Cloudflare Pages auto-redirects /path to /path/ — this is OK for SEO
+# The 3XX in Ahrefs is from crawlers hitting non-slash URLs
+
+/*
+  X-Robots-Tag: noindex
+  ! Host
+  ! Origin
